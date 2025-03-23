@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francesco Lupia personal web site</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    <style>
+        :root {
+            --primary: #26e411;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --container-bg: #1E1E1E;
+            --header-bg: #181818;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'JetBrains Mono', Helvetica, sans-serif;
+            background-color: var(--dark-bg);
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+        
+        header {
+            padding: 20px;
+            background-color: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 80px 20px;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--container-bg);
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .highlight {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            background-color: var(--primary);
+            color: var(--dark-bg);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--dark-bg);
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        
+        .btn-page-header {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container--small {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 25px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .container--small:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.5!important;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .subtitle-text {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            margin: 10px 0 0;
+        }
+        
+        .title-badge {
+            font-size: 0.8rem;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-color: #333;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .card-text {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background-color: rgba(38, 228, 17, 0.2);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        /* Publication list styles */
+        .publications-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .filter-section {
+            background-color: var(--container-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .form-control {
+            background-color: #252525;
+            color: #fff;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(38, 228, 17, 0.25);
+        }
+        
+        .form-control::placeholder {
+            color: #999;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .col-auto {
+            flex: 0 0 auto;
+        }
+        
+        .filter-search {
+            min-width: 200px;
+        }
+        
+        select.form-control {
+            cursor: pointer;
+        }
+        
+        .grid-sizer {
+            width: 100%;
+        }
+        
+        .publication-item {
+            width: 100%;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .search-modal {
+            transform: scale(0);
+            -webkit-transform: scale(0);
+            background-color: var(--dark-bg);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            overflow: scroll;
+            position: fixed;
+            visibility: hidden;
+            z-index: -99;
+            transition: all 0.3s ease;
+        }
+        
+        .search-modal.is-active {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            visibility: visible;
+            z-index: 1030;
+        }
+        
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow: auto;
+            display: none;
+        }
+        
+        .modal-dialog {
+            margin: 10vh auto;
+            max-width: 600px;
+        }
+        
+        .modal-content {
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        
+        .modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .modal-body {
+            padding: 15px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .modal-body pre {
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 0;
+        }
+        
+        .modal-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #e6e6e6;
+        }
+        
+        .modal-footer {
+            padding: 15px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .modal-open {
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .container--small {
+                padding: 15px;
+            }
+        }
+
+        .abstract-container {
+            position: relative;
+            }
+
+        .abstract-preview {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .abstract-full {
+             display: none;
+        }
+
+        .abstract-container.expanded .abstract-preview {
+             display: none;
+        }
+
+        .abstract-container.expanded .abstract-full {
+                display: block;
+        }
+
+        .toggle-abstract {
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .toggle-abstract:hover {
+         text-decoration: underline;
+        }
+
+        .project-details {
+            display: none;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 15px;
+        }
+
+         .project-item.expanded .project-details {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+          }
+
+            .project-section {
+            margin-bottom: 15px;
+            }
+
+            .project-section-title {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+            }
+
+            .project-dates {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            }
+
+            .project-funding {
+            font-style: italic;
+            font-size: 0.9rem;
+            }
+
+            .toggle-project {
+            display: inline-block;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: all 0.2s ease;
+            }
+
+            .toggle-project:hover {
+            text-decoration: underline;
+            }
+
+            .card {
+            transition: all 0.4s ease-in-out;
+            }
+
+            .card.expanded {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+            }
+
+            footer p {
+                font-size: .86rem;
+                text-align: center
+            }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><span class="highlight">Francesco</span> Lupia</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#projects">Projects</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-image">
+        <img src="/author/francesco-lupia/avatar.png" alt="Profile Photo">
+    </div>
+    <div class="hero-content">
+        <h1><span class="highlight">Francesco Lupia</span></h1>
+        <p>Assistant Professor of Computer Science</p>
+        <div class="social-icons">
+            <a href="https://x.com/fras3c/"><i class="fa-brands fa-x-twitter fa-2x"></i></a>
+            <a href="https://github.com/fras3c"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/francesco-lupia/"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://scholar.google.it/citations?user=icnAjqQAAAAJ"><i class="ai ai-google-scholar-square ai-2x"></i></a>
+            <a href="https://www.researchgate.net/profile/Francesco-Lupia"><i class="ai ai-researchgate ai-2x"></i></a>
+            <a href="https://dblp.org/pid/142/8763.html"><i class="ai ai-dblp ai-2x"></i></a>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=56239849900"><i class="ai ai-scopus ai-2x"></i></a>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="container--small">
+        <p>I am an Assistant Professor of Computer Science (SSD ING-INF/05) at the University of Calabria, specializing in cyber security, artificial intelligence and game theory. My research focuses on developing methods that integrate advanced AI and game theory techniques to address complex cybersecurity challenges, providing innovative and practical solutions.</p>
+        <p>Previously, I was a Research Fellow at University of Calabria. I received my Ph.D. in Computer Science in 2016 from the University of Calabria under the supervision of Prof. Francesco Scarcello and Prof. Gianluigi Greco.</p>
+    </div>
+</section>
+
+<section id="publications">
+    <h2 class="section-title">Recent Publications</h2>
+    
+    <div id="container-publications" class="publications-list">
+        <!-- Publications will be dynamically loaded here -->
+    </div>
+    
+    <div class="text-center">
+        <a href="publications.html" class="btn">View All Publications</a>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    
+    <div id="projects-container" class="grid">
+        <!-- Projects will be dynamically loaded here -->
+    </div>
+</section>
+
+<section id="teaching">
+    <h2 class="section-title">Teaching</h2>
+    
+    <div class="container--small">
+        <div class="title-box">
+            <h3 class="title-text"><span class="title-badge">// MS Course</span><br>Ethical Hacking</h3>
+            <div class="subtitle-text">
+                <p>Spring 2025</p>
+                <p>This course covers advanced topics in ethical hacking, including pentesting methodology, advanced web exploitation, and privilege escalation in Windows.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container--small">
+        <div class="title-box">
+            <h3 class="title-text"><span class="title-badge">// BS Course</span><br>Methods and tools for Cyber Security</h3>
+            <div class="subtitle-text">
+                <p>Fall 2024</p>
+                <p>An introduction to the fundamental concepts and techniques of cyber security, including binary exploitation, web exploitation, and network security.</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    
+    <div class="container--small">
+        <p>I am always open to discussing research ideas, potential collaborations, or opportunities to give talks about my work. Feel free to reach out!</p>
+        
+        <ul class="fa-ul" style="list-style-type: none; padding-left: 0; margin-top: 30px;">
+            <li>
+                <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
+                <span id="person-email"><a href="mailto:francesco.lupia@unical.it">francesco.lupia[at]unical.it</a></span>
+            </li>
+            <li style="margin-top: 20px;">
+                <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
+                <span id="person-address">University of Calabria, Via P. Bucci Edificio 44Z - piano 1°, Arcavacata di Rende (CS)</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<div id="modal" class="modal fade" style="display: none;" aria-modal="true" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs latex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+    <p>© 2025 Francesco Lupia</p>
+</footer>
+
+<!-- Add this to your existing script section -->
+<script>
+    // Function to create HTML for a project
+    function createProjectHTML(project) {
+    const tagsHTML = project.tags ? project.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
+    
+    // Format dates
+    let dateStr = '';
+    if (project.start_date && project.end_date) {
+        dateStr = `${formatDate(project.start_date)} - ${formatDate(project.end_date)}`;
+    } else if (project.start_date) {
+        dateStr = `Started: ${formatDate(project.start_date)}`;
+    }
+
+    // Check for non-empty URLs
+    const hasProjectUrl = project.url_project && project.url_project.trim() !== '';
+    const hasCodeUrl = project.url_code && project.url_code.trim() !== '';
+    
+    return `
+    <div class="card project-item" data-id="${project.id}">
+
+        <div class="card-content">
+            <h3 class="card-title">${project.title}</h3>
+            <p class="card-text">${project.description}</p>
+            <div class="tags">
+                ${tagsHTML}
+            </div>
+            
+            <!-- Expandable Details Section -->
+            <div class="project-details">
+                ${dateStr ? `
+                <div class="project-dates">
+                    <i class="fas fa-calendar"></i> ${dateStr}
+                </div>` : ''}
+                
+                <div class="project-section">
+                    <div class="project-section-title">About</div>
+                    <div class="project-about">${project.about || project.description}</div>
+                </div>
+                
+                <div class="project-section">
+                    <div class="project-section-title">Funding</div>
+                    <div class="project-funding">${project.funding || 'No funding information available.'}</div>
+                </div>
+                
+              ${(hasProjectUrl || hasCodeUrl) ? `
+                <div class="project-links" style="margin-top: 15px;">
+                    ${hasProjectUrl ? `
+                    <a href="${project.url_project}" class="btn btn-sm" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i> Project Website
+                    </a>` : ''}
+                    
+                    ${hasCodeUrl ? `
+                    <a href="${project.url_code}" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> View Code
+                    </a>` : ''}
+                </div>` : ''}
+            </div>
+
+            <span class="toggle-project">Read more</span>
+        </div>
+    </div>`;
+}
+
+function formatDate(dateString) {
+    if (!dateString) return '';
+    
+    try {
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat('en-US', { 
+            year: 'numeric', 
+            month: 'short'
+        }).format(date);
+    } catch (e) {
+        return dateString;
+    }
+}
+
+    // Function to create HTML for a publication
+    function createPublicationHTML(pub) {
+        let typeLabel = '';
+        switch(pub.pubtype) {
+            case 1: typeLabel = 'Conference Paper'; break;
+            case 2: typeLabel = 'Journal Article'; break;
+            case 3: typeLabel = 'Preprint'; break;
+            case 7: typeLabel = 'Thesis'; break;
+            default: typeLabel = 'Publication';
+        }
+        
+        const tagsHTML = pub.tags ? pub.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
+        
+        return `
+        <div class="container--small publication-item year-${pub.year} pubtype-${pub.pubtype}" data-id="${pub.id}">
+            <div class="title-box">
+                <h3 class="title-text"><span class="title-badge">// ${typeLabel}</span><br>${pub.title}</h3>
+                <div class="subtitle-text">
+                    <p>${pub.authors}</p>
+                    <p><em>${pub.venue}, ${pub.year}</em></p>
+                     <div class="abstract-container">
+                        <p class="abstract-preview">${pub.abstract}</p>
+                        <p class="abstract-full">${pub.abstract}</p>
+                        <span class="toggle-abstract">Read more</span>
+                    </div>
+                    <div class="tags">
+                        ${tagsHTML}
+                    </div>
+                    <p>
+                        <a class="btn btn-outline-primary btn-page-header btn-sm" href="${pub.pdfPath}" target="_blank" rel="noopener">
+                            PDF
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-page-header btn-sm js-cite-modal" data-filename="${pub.citePath}" data-id="${pub.id}">
+                            Cite
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // Load projects dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load publications first
+        fetch('data/publications.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Sort publications by year (descending)
+                const sortedPublications = data.sort((a, b) => b.year - a.year);
+                
+                // Get the first 10 publications for the homepage
+                const recentPublications = sortedPublications.slice(0, 10);
+                
+                // Populate the publications section on the main page
+                const publicationsContainer = document.getElementById('container-publications');
+                recentPublications.forEach(pub => {
+                    publicationsContainer.innerHTML += createPublicationHTML(pub);
+                });
+                
+                // Set up citation modal functionality
+                setupCitationModal(data);
+                
+                // Now load projects
+                return fetch('data/projects.json');
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(projects => {
+                // Populate the projects section
+                const projectsContainer = document.getElementById('projects-container');
+                
+                // Clear any existing content
+                projectsContainer.innerHTML = '';
+                
+                // Add each project
+                projects.forEach(project => {
+                    projectsContainer.innerHTML += createProjectHTML(project);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+                
+                // Handle errors for publications
+                const publicationsContainer = document.getElementById('container-publications');
+                if (publicationsContainer && publicationsContainer.innerHTML === '') {
+                    publicationsContainer.innerHTML = '<p>Error loading publications. Please try again later.</p>';
+                }
+                
+                // Handle errors for projects
+                const projectsContainer = document.getElementById('projects-container');
+                if (projectsContainer) {
+                    projectsContainer.innerHTML = '<p>Error loading projects. Please try again later.</p>';
+                }
+            });
+
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('toggle-abstract')) {
+        const abstractContainer = e.target.closest('.abstract-container');
+        abstractContainer.classList.toggle('expanded');
+        
+        if (abstractContainer.classList.contains('expanded')) {
+            e.target.textContent = 'Show less';
+        } else {
+            e.target.textContent = 'Read more';
+        }
+    }
+       else if (e.target.classList.contains('toggle-project')) {
+            const projectCard = e.target.closest('.project-item');
+            projectCard.classList.toggle('expanded');
+            
+            // Update button text
+            if (projectCard.classList.contains('expanded')) {
+                e.target.textContent = 'Show less';
+            } else {
+                e.target.textContent = 'Read more';
+            }
+        }
+    });
+    });
+    
+    // Function to set up citation modal
+    function setupCitationModal(publications) {
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('js-cite-modal') || e.target.closest('.js-cite-modal')) {
+                e.preventDefault();
+                
+                const citeBtn = e.target.classList.contains('js-cite-modal') ? 
+                    e.target : e.target.closest('.js-cite-modal');
+                
+                const pubId = citeBtn.getAttribute('data-id');
+                const publication = publications.find(p => p.id === pubId);
+                
+                if (publication) {
+                    // Load the citation file content
+                    fetch(publication.citePath)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(citation => {
+                            const modal = document.getElementById('modal');
+                            document.querySelector('#modal .modal-body pre code').textContent = citation;
+                            document.querySelector('.js-download-cite').setAttribute('href', publication.citePath);
+                            
+                            modal.style.display = 'block';
+                            document.body.classList.add('modal-open');
+                        })
+                        .catch(error => {
+                            console.error('Error loading citation:', error);
+                            const modal = document.getElementById('modal');
+                            document.querySelector('#modal .modal-body pre code').textContent = 
+                                'Error loading citation. Please try again later.';
+                            document.querySelector('.js-download-cite').setAttribute('href', publication.citePath);
+                            
+                            modal.style.display = 'block';
+                            document.body.classList.add('modal-open');
+                        });
+                }
+            }
+        });
+        
+        // Close modal when clicking the close button
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+        });
+        
+        // Copy citation
+        document.querySelector('.js-copy-cite').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the citation text
+            const citationText = document.querySelector('#modal .modal-body pre code').textContent;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(citationText).then(function() {
+                // Create a temporary message to show success
+                const successMsg = document.createElement('span');
+                successMsg.textContent = ' Copied!';
+                successMsg.style.color = 'var(--primary)';
+                successMsg.style.marginLeft = '5px';
+                
+                this.parentNode.appendChild(successMsg);
+                
+                // Remove the message after 2 seconds
+                setTimeout(function() {
+                    successMsg.remove();
+                }, 2000);
+            }.bind(this)).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                document.getElementById('modal-error').textContent = 'Copy failed';
+            });
+        });
+    }
+</script>
+
+</body>
+</html>

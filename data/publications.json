@@ -1,0 +1,77 @@
+[
+  {
+    "id": "light-sensor-2025",
+    "title": "Light sensor based covert channels on mobile devices",
+    "authors": "Mila Dalla Preda, Claudia Greco, Michele Ianni, Francesco Lupia, Andrea Pugliese",
+    "venue": "Information Sciences",
+    "year": 2025,
+    "abstract": "The widespread adoption of light sensors in mobile devices has enabled functionalities that range from automatic brightness control to environmental monitoring. However, these sensors also present significant security and privacy risks within the Android ecosystem due to unrestricted access permissions. This paper explores how light sensor data can be used for covert communication through a novel, light-based out-of-band channel. We develop two approaches–Baseline and ResetBased–that use luminance values to encode and decode data. These methods tackle challenges that arise from data variability and the unpredictability of sensor event timings. To enhance data transmission accuracy, our methods employ a novel strategy for selecting luminance reference sequences and leverage mean-squared-error-based distance for decoding. Experimental results validate the effectiveness of our approaches and their potential for real-world applications.",
+    "tags": [
+      "Covert channels",
+      "Light sensors",
+      "Mobile devices"
+    ],
+    "type": "Journal article",
+    "pubtype": 2,
+    "pdfPath": "/publication/2025/light-sensor/light-sensor.pdf",
+    "citePath": "/publication/2025/light-sensor/cite.bib",
+    "featured": true
+  },
+  {
+    "id": "pervasive-2025",
+    "title": "Collective victim counting in post-disaster response: A distributed, power-efficient algorithm via BLE spontaneous networks",
+    "authors": "Giacomo Longo, Alessandro Cantelli-Forti, Enrico Russo, Francesco Lupia, Martin Strohmeier, and Andrea Pugliese",
+    "venue": "Pervasive and Mobile Computing",
+    "year": 2025,
+    "abstract": "Accurately determining the number of people affected by emergencies is essential for deploying effective response measures during disasters. Traditional solutions like cellular and Wi-Fi networks are often rendered ineffective during such emergencies due to widespread infrastructure damage or non-functional connectivity, prompting the exploration of more resilient methods. This paper proposes a novel solution utilizing Bluetooth Low Energy (BLE) technology and decentralized networks composed entirely of mobile and wearable devices to count individuals autonomously without reliance on external communication equipment or specialized personnel. This count leverages uncoordinated relayed communication among devices within these networks, enabling us to extend our counting capabilities well beyond the direct range of rescuers. A formally evaluated, experimentally validated, and privacy-preserving counting algorithm that demonstrates rapid convergence and high accuracy even in large-scale scenarios is employed.",
+    "tags": [
+      "Bluetooth",
+      "Disaster response",
+      "Spontaneous wireless communications",
+      "Probabilistic data structure",
+      "Mobile devices"
+    ],
+    "type": "Journal article",
+    "pubtype": 2,
+    "pdfPath": "/publication/2025/pervasive/pervasive.pdf",
+    "citePath": "/publication/2025/pervasive/cite.bib",
+    "featured": true
+  },
+  {
+    "id": "salsa-2025",
+    "title": "A data anonymization methodology for security operations centers: Balancing data protection and security in industrial systems",
+    "authors": "Giacomo Longo, Francesco Lupia, Alessio Merlo, Francesco Pagano, and Enrico Russo",
+    "venue": "Information Sciences",
+    "year": 2025,
+    "abstract": "In an era where industrial Security Operations Centers (SOCs) are paramount to enabling cybersecurity, they can unintentionally become enablers of intellectual property theft through the data they analyze and retain. The above issue requires finding solutions to strike a balance between data protection and security. This paper proposes a real-time data anonymization framework designed to operate directly within network devices. Using an extensive case study, our approach demonstrates how valuable intellectual property associated with industrial processes can be protected without compromising the effectiveness of behavioral anomaly detection systems. The methodology is designed to be nonintrusive, reversible, and seamlessly portable on existing security solutions. We evaluated these properties through comprehensive experimental testing, which showed both the method's effectiveness in securing intellectual property and its suitability for continuous real-time operation.",
+    "tags": [
+      "Industrial security",
+      "Data anonymization",
+      "Security Operation Center",
+      "Anomaly detection",
+      "Data Protection"
+    ],
+    "type": "Journal article",
+    "pubtype": 2,
+    "pdfPath": "/publication/2025/salsa/sauce.pdf",
+    "citePath": "/publication/2025/salsa/cite.bib",
+    "featured": true
+  },
+  {
+    "id": "weft-2025",
+    "title": "WEFT: a consistent and tamper-proof methodology for acquisition of automatically verifiable forensic web evidence",
+    "authors": "Alessandro {Cantelli Forti}, Giacomo Longo, Francesco Lupia and Enrico Russo",
+    "venue": "International Journal of Information Security",
+    "year": 2025,
+    "abstract": "The pervasiveness of web-based services has further complicated forensic operations, as traditional acquisition techniques do not fit with the volatile nature of online evidence. The current best practice often suffer from procedural shortcomings and are prone to tampering, which can lead to the dismissal of evidence in legal contexts. This paper introduces an acquisition methodology aimed at improving the integrity and admissibility of digital evidence acquired from live web environments. Our proposed approach addresses these issues and adheres to the requirement of international standards by establishing a unified format as a single source of truth, secure timestamping, and enabling automatic verification of integrity and its content, thereby offering more transparency to the involved parties. An extensive evaluation with live acquisition of the top 100 most popular websites indicates that the methodology produces an artifact comparable to state-of-the-art tools with added benefits.",
+    "tags": [
+      "Web Forensics",
+      "Digital Forensics"
+    ],
+    "type": "Journal article",
+    "pubtype": 2,
+    "pdfPath": "/publication/2025/weft/weft.pdf",
+    "citePath": "/publication/2025/weft/cite.bib",
+    "featured": true
+  }
+]

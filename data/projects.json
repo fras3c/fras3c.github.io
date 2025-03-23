@@ -1,0 +1,21 @@
+[
+  {
+    "id": "artic",
+    "title": "ARTIC: Affordable, Reusable and Truly Interoperable Cyber ranges",
+    "description": "A framework for Cyber Ranges.",
+    "about": "The goal of the ARTIC project is that of (1) designing a novel architecture for cyber ranges, following the input provided by industrial partners, which will establish standards for the main components' operations while reducing human and technological costs, (2) releasing a PoC framework that implements the aforementioned architecture and provides facilities to assess how new technological solutions, e.g., microservices, paradigms, e.g., digital twins, and methodologies based on domain-specific languages, reasoning systems, and formal methods can improve the design and execution phase of training and testing activities, (3) examining the requirements to extend the currently available scenarios to embed new cybersecurity domains, e.g., AI or 5G technologies, and (4) releasing a PoC of a multi-domain scenario also including such new technologies and providing the capabilities to execute testing and training activities.",
+    "image": "",
+    "funding": "This project is included in \\emph{Spoke 4 -- Operating Systems and Virtualization Security} of the Research and Innovation Program PE00000014, \\emph{SEcurity and RIghts in the CyberSpace (SERICS)}, under the National Recovery and Resilience Plan, Mission 4 \\qm{Education and Research} -- Component 2 \\qm{From Research to Enterprise} -- Investment 1.3, funded by the European Union - NextGenerationEU.",
+    "start_date": "2023-01-15",
+    "end_date": "2025-12-31",
+    "tags": [
+      "Virtualization",
+      "Digital Twins",
+      "Machine Learning",
+      "Simulation",
+      "Cooperation"
+    ],
+    "url_project": "",
+    "url_code": ""
+  }
+]

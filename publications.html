@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francesco Lupia personal web site</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    <style>
+        :root {
+            --primary: #26e411;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --container-bg: #1E1E1E;
+            --header-bg: #181818;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'JetBrains Mono', Helvetica, sans-serif;
+            background-color: var(--dark-bg);
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+        
+        header {
+            padding: 20px;
+            background-color: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .highlight {
+            color: var(--primary);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        main {
+            padding: 60px 20px;
+        }
+        
+        .container--small {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 25px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .title-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 2.5!important;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .subtitle-text {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            margin: 10px 0 0;
+        }
+        
+        .title-badge {
+            font-size: 0.8rem;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            background-color: var(--primary);
+            color: var(--dark-bg);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--dark-bg);
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        
+        .btn-page-header {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background-color: rgba(38, 228, 17, 0.2);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: var(--dark-bg);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        footer {
+            padding: 40px 20px;
+            background-color: var(--header-bg);
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        /* Publication filter styles */
+        .filter-section {
+            background-color: var(--container-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .col-auto {
+            flex: 0 0 auto;
+        }
+        
+        .form-control {
+            background-color: #252525;
+            color: #fff;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(38, 228, 17, 0.25);
+        }
+        
+        .form-control::placeholder {
+            color: #999;
+        }
+        
+        .filter-search {
+            min-width: 200px;
+        }
+        
+        select.form-control {
+            cursor: pointer;
+        }
+        
+        .grid-sizer {
+            width: 100%;
+        }
+        
+        .publication-item {
+            width: 100%;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+        
+        #container-publications {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow: auto;
+            display: none;
+        }
+        
+        .modal-dialog {
+            margin: 10vh auto;
+            max-width: 600px;
+        }
+        
+        .modal-content {
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        
+        .modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .modal-body {
+            padding: 15px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .modal-body pre {
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 0;
+        }
+        
+        .modal-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #e6e6e6;
+        }
+        
+        .modal-footer {
+            padding: 15px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .modal-open {
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .col-auto {
+                width: 100%;
+            }
+        }
+
+        footer p {
+                font-size: .86rem;
+                text-align: center
+            }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;"><span class="highlight">Francesco</span> Lupia</a></div>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#publications">Publications</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#teaching">Teaching</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h1 class="section-title">Publications</h1>
+    
+    <div class="filter-section">
+        <div class="form-row mb-4">
+            <div class="col-auto">
+                <input type="search" class="filter-search form-control form-control-sm" placeholder="Search..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false">
+            </div>
+            <div class="col-auto">
+                <select class="pub-filters pubtype-select form-control form-control-sm" data-filter-group="pubtype">
+                    <option value="*">Type</option>
+                    <option value=".pubtype-1">Conference paper</option>
+                    <option value=".pubtype-2">Journal article</option>
+                    <option value=".pubtype-3">Preprint</option>
+                    <option value=".pubtype-7">Thesis</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <select class="pub-filters form-control form-control-sm" data-filter-group="year">
+                    <option value="*">Date</option>
+                    <option value=".year-2025">2025</option>
+                    <option value=".year-2024">2024</option>
+                    <option value=".year-2023">2023</option>
+                    <option value=".year-2022">2022</option>
+                    <option value=".year-2021">2021</option>
+                    <option value=".year-2020">2020</option>
+                    <option value=".year-2019">2019</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div id="container-publications">
+        <div class="grid-sizer"></div>
+        <!-- Publications will be loaded here by JavaScript -->
+    </div>
+    
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+</main>
+
+<div id="modal" class="modal fade" aria-modal="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cite</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre><code class="tex hljs latex"></code></pre>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+                    <i class="fas fa-copy"></i> Copy
+                </a>
+                <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+                    <i class="fas fa-download"></i> Download
+                </a>
+                <div id="modal-error"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 Francesco Lupia</p>
+</footer>
+
+<!-- Replace the entire script section at the bottom of publications.html with this code -->
+
+<script>
+    // Function to create HTML for a publication
+    function createPublicationHTML(pub) {
+        let typeLabel = '';
+        switch(pub.pubtype) {
+            case 1: typeLabel = 'Conference Paper'; break;
+            case 2: typeLabel = 'Journal Article'; break;
+            case 3: typeLabel = 'Preprint'; break;
+            case 7: typeLabel = 'Thesis'; break;
+            default: typeLabel = 'Publication';
+        }
+        
+        const tagsHTML = pub.tags ? pub.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
+        
+        return `
+        <div class="container--small publication-item year-${pub.year} pubtype-${pub.pubtype}" data-id="${pub.id}">
+            <div class="title-box">
+                <h3 class="title-text"><span class="title-badge">// ${typeLabel}</span><br>${pub.title}</h3>
+                <div class="subtitle-text">
+                    <p>${pub.authors}</p>
+                    <p><em>${pub.venue}, ${pub.year}</em></p>
+                    <p>${pub.abstract}</p>
+                    <div class="tags">
+                        ${tagsHTML}
+                    </div>
+                    <p>
+                        <a class="btn btn-outline-primary btn-page-header btn-sm" href="${pub.pdfPath}" target="_blank" rel="noopener">
+                            PDF
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-page-header btn-sm js-cite-modal" data-filename="${pub.citePath}" data-id="${pub.id}">
+                            Cite
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    $(document).ready(function() {
+       // console.log("Document ready");
+        
+        // Check if Isotope is available
+        if (typeof $.fn.isotope !== 'function') {
+            console.error("Isotope is not loaded properly!");
+            // Load it manually if needed
+            var script = document.createElement('script');
+            script.src = 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js';
+            script.onload = initPage;
+            document.head.appendChild(script);
+        } else {
+           // console.log("Isotope is loaded properly");
+            initPage();
+        }
+        
+        function initPage() {
+            // Fetch the publications JSON file
+            $.getJSON('data/publications.json', function(data) {
+             //   console.log("Publications loaded:", data.length);
+                
+                // Sort publications by year (descending)
+                const sortedPublications = data.sort((a, b) => b.year - a.year);
+                
+                // Populate the publications container
+                const $grid = $('#container-publications');
+                
+                // Add grid-sizer element for Isotope
+                $grid.append('<div class="grid-sizer"></div>');
+                
+                // Add publication items
+                sortedPublications.forEach(pub => {
+                    $grid.append(createPublicationHTML(pub));
+                });
+                
+             //   console.log("Publications added to DOM");
+                
+                // Initialize Isotope after all items are loaded
+                // But first, wait for everything to be properly loaded
+                setTimeout(function() {
+                    try {
+                   //     console.log("Initializing Isotope");
+                        $grid.isotope({
+                            itemSelector: '.publication-item',
+                            percentPosition: true,
+                            masonry: {
+                                columnWidth: '.grid-sizer'
+                            }
+                        });
+                 //       console.log("Isotope initialized successfully");
+                    } catch (error) {
+                        console.error("Error initializing Isotope:", error);
+                        // Fallback - just display the publications without filtering
+                        $('.publication-item').css('display', 'block');
+                    }
+                    
+                    // Set up filters after Isotope is initialized
+                    setupFilters($grid);
+                }, 500);
+            }).fail(function(jqxhr, textStatus, error) {
+                const err = textStatus + ", " + error;
+                console.error("Error fetching publications:", err);
+                $('#container-publications').html('<p class="text-center">Error loading publications. Please try again later.</p>');
+            });
+        }
+        
+        function setupFilters($grid) {
+            // Active publication filters
+            let pubFilters = {};
+            
+            // Flatten object by concatenating values
+            function concatValues(obj) {
+                let value = '';
+                for (let prop in obj) {
+                    value += obj[prop];
+                }
+                return value;
+            }
+            
+            // Filter on select change
+            $('.pub-filters').on('change', function() {
+                let $this = $(this);
+                
+                // Get group key
+                let filterGroup = $this[0].getAttribute('data-filter-group');
+                
+                // Set filter for group
+                pubFilters[filterGroup] = this.value;
+                
+                // Combine filters
+                let filterValues = concatValues(pubFilters);
+                
+                console.log("Applying filter:", filterValues);
+                
+                // Activate filters with animation
+                try {
+                    $grid.isotope({ 
+                        filter: filterValues,
+                        transitionDuration: '0.4s'
+                    });
+                } catch (error) {
+                    console.error("Error applying filter:", error);
+                    // Manual filtering fallback
+                    $('.publication-item').hide();
+                    $(filterValues !== '*' ? filterValues : '.publication-item').show();
+                }
+                
+                // If filtering by publication type, update the URL hash
+                if (filterGroup == "pubtype") {
+                    // Set hash URL to current filter
+                    let url = $(this).val();
+                    if (url.substr(0, 9) == '.pubtype-') {
+                        window.location.hash = url.substr(9);
+                    } else {
+                        window.location.hash = '';
+                    }
+                }
+            });
+            
+            // Search filter
+            $('.filter-search').keyup(function() {
+                let searchQuery = $(this).val().toLowerCase();
+                
+                console.log("Search query:", searchQuery);
+                
+                // Manual search if Isotope fails
+                function manualSearch() {
+                    $('.publication-item').each(function() {
+                        const itemText = $(this).text().toLowerCase();
+                        const filterValues = concatValues(pubFilters);
+                        
+                        // If there are no filters set, just search
+                        if (!filterValues || filterValues === '*') {
+                            $(this).toggle(itemText.indexOf(searchQuery) > -1);
+                        } else {
+                            // Otherwise, combine search with filters
+                            $(this).toggle(itemText.indexOf(searchQuery) > -1 && 
+                                          $(this).is(filterValues));
+                        }
+                    });
+                }
+                
+                // Custom filter function for search
+                try {
+                    $grid.isotope({
+                        filter: function() {
+                            // Use text of all child elements for search
+                            let itemText = $(this).text().toLowerCase();
+                            
+                            // Get current filter values
+                            let filterValues = concatValues(pubFilters);
+                            
+                            // If there are no filters set, just search
+                            if (!filterValues || filterValues === '*') {
+                                return itemText.indexOf(searchQuery) > -1;
+                            }
+                            
+                            // Otherwise, combine search with filters
+                            return itemText.indexOf(searchQuery) > -1 && 
+                                   $(this).is(filterValues);
+                        }
+                    });
+                } catch (error) {
+                    console.error("Error in search:", error);
+                    manualSearch();
+                }
+            });
+        }
+        
+        // Back to top button functionality
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('visible');
+            } else {
+                $('.back-to-top').removeClass('visible');
+            }
+        });
+        
+        $('.back-to-top').click(function() {
+            $('html, body').animate({ scrollTop: 0 }, 500);
+            return false;
+        });
+        
+        // Citation modal functionality
+        $(document).on('click', '.js-cite-modal', function(e) {
+            e.preventDefault();
+            
+            const pubId = $(this).data('id');
+            
+            // Fetch the publications again to get the current one
+            $.getJSON('data/publications.json', function(data) {
+                const publication = data.find(p => p.id === pubId);
+                
+                if (publication) {
+                    // Fetch the citation file
+                    $.get(publication.citePath, function(citationText) {
+                        $('#modal .modal-body pre code').text(citationText);
+                        $('.js-download-cite').attr('href', publication.citePath);
+                        
+                        $('#modal').css('display', 'block');
+                        $('body').addClass('modal-open');
+                    }).fail(function() {
+                        $('#modal .modal-body pre code').text('Error loading citation');
+                        $('.js-download-cite').attr('href', publication.citePath);
+                        
+                        $('#modal').css('display', 'block');
+                        $('body').addClass('modal-open');
+                    });
+                }
+            }).fail(function() {
+                $('#modal .modal-body pre code').text('Error loading publication data');
+                $('#modal').css('display', 'block');
+                $('body').addClass('modal-open');
+            });
+        });
+        
+        // Close modal
+        $('.close').click(function() {
+            $('#modal').css('display', 'none');
+            $('body').removeClass('modal-open');
+        });
+        
+        // Close modal when clicking outside
+        $(window).click(function(e) {
+            if (e.target.is($('#modal'))) {
+                $('#modal').css('display', 'none');
+                $('body').removeClass('modal-open');
+            }
+        });
+        
+        // Copy citation
+        $('.js-copy-cite').click(function(e) {
+            e.preventDefault();
+            
+            const citation = $('#modal .modal-body pre code').text();
+            navigator.clipboard.writeText(citation)
+                .then(() => {
+                    const $success = $('<span>Copied!</span>')
+                        .css('color', 'var(--primary)')
+                        .css('margin-left', '5px');
+                    
+                    $(this).parent().append($success);
+                    
+                    setTimeout(() => {
+                        $success.remove();
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy:', err);
+                    $('#modal-error').text('Copy failed');
+                });
+        });
+    });
+</script>
+
+</body>
+</html>
