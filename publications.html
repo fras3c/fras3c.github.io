@@ -466,7 +466,7 @@
     function createPublicationHTML(pub) {
         let typeLabel = '';
         switch(pub.pubtype) {
-            case 1: typeLabel = 'Conference Paper'; break;
+            case 1: typeLabel = 'Conference paper'; break;
             case 2: typeLabel = 'Journal Article'; break;
             case 3: typeLabel = 'Preprint'; break;
             case 7: typeLabel = 'Thesis'; break;
@@ -723,7 +723,7 @@
         
         // Close modal when clicking outside
         $(window).click(function(e) {
-            if (e.target.is($('#modal'))) {
+            if ($(e.target).is('#modal')) {
                 $('#modal').css('display', 'none');
                 $('body').removeClass('modal-open');
             }

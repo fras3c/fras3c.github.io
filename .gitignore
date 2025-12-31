@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# ignore macos ds_store
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build outputs (uncomment if you stop tracking generated JSON)
+# data/*.json
